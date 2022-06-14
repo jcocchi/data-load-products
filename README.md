@@ -8,9 +8,8 @@ This project generates fictional product data using [Bogus](https://github.com/b
 
 ```json
 {
-  "ConnectionStrings": {
-    "CosmosConnection": "<connection string>"
-  }
+  "uri": "<add the uri here>",
+  "key": "<add the key here>"
 }
 ```
 
@@ -22,9 +21,18 @@ This project generates fictional product data using [Bogus](https://github.com/b
 
 You can run the application by entering `Ctrl + F5` in Visual Studio or entering `dotnet run` in the command line.
 
-> Note: The application defaults to writing 200,000 products in batches of 100 items. These settings are configurable by changing lines 49 and 50 in `Program.cs`.
+> Note: The application defaults to writing 200,000 products in batches of 100 items. These settings are configurable by changing line 20 (or 24 to change default values) `Program.cs`.
 >
 > ```c#
-> var numDocsToWrite = 200000;
-> var batchSize = 100;
+> private static async Task CreateDocuments(Container container, int documentsToCreate = 500, int batchSize = 100, int sleep = 100, int numWritten = 0) ; //Line 24: Change default values
+>
+> await CreateDocuments(container, documentsToCreate: 20000, batchSize: 200, sleep: 100); //Line 20: 
 > ```
+
+
+            
+
+        }
+
+        
+   
