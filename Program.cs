@@ -17,11 +17,10 @@ namespace BulkLoadCosmos
 
             var container = client.GetDatabase("cosmicworks").GetContainer("products-scale");
 
-            await CreateDocuments(container, documentsToCreate: 200, batchSize: 200, sleep: 100);
-
+            await CreateDocuments(container, documentsToCreate: 200000, batchSize: 200, sleep: 100);
         }
 
-        private static async Task CreateDocuments(Container container, int documentsToCreate = 500, int batchSize = 100, int sleep = 100, int numWritten = 0)
+        private static async Task CreateDocuments(Container container, int documentsToCreate, int batchSize, int sleep, int numWritten = 0)
         {
             Console.WriteLine($"Welcome to the Cosmos DB Bulk Loader. \n\nWriting {documentsToCreate} records...");
 
